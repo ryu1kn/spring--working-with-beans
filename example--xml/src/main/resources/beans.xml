@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="webHandler" class="com.example.bookstore.BookstoreWebHandler">
+        <constructor-arg ref="router"/>
+    </bean>
+
+    <bean id="router" class="com.example.bookstore.Router">
+        <constructor-arg ref="bookCatalogService" />
+    </bean>
+
+    <bean id="bookCatalogService" class="com.example.bookstore.BookCatalogService">
+        <constructor-arg index="0" ref="bookRepo" />
+        <constructor-arg index="1" ref="authorRepo" />
+    </bean>
+
+    <bean id="bookRepo" class="com.example.bookstore.RealBookRepo" />
+    <bean id="authorRepo" class="com.example.bookstore.RealAuthorRepo" />
+</beans>
