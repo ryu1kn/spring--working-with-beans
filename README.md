@@ -14,7 +14,7 @@ Each example:
 
 * has the same web app. Bookstore.
 * contains unit tests that uses the corresponding bean definition style.
-* is written in Kotlin (which can confuse Java/Groovy users...)
+* is written in Kotlin (as the original audiences are Kotlin devs...)
 
 ## Usage
 
@@ -34,6 +34,20 @@ To run the unit test:
 
 ```sh
 ./gradlew test
+```
+
+## Misc: Number of lines of each example
+
+Lines in files under `src` directory of each example, excluding `import` statements.
+You can tweak the script to include `import` too.
+
+```sh
+$ ./count-lines.sh
+  91 lines: example--no-beans
+ 100 lines: example--hand-wired
+ 120 lines: example--java-config
+ 126 lines: example--annotation
+ 131 lines: example--xml
 ```
 
 ## References
