@@ -1,12 +1,14 @@
 package com.example.bookstore
 
 import org.springframework.web.reactive.function.BodyInserters
-import org.springframework.web.reactive.function.server.*
 import org.springframework.web.reactive.function.server.RequestPredicates.GET
+import org.springframework.web.reactive.function.server.RouterFunction
+import org.springframework.web.reactive.function.server.RouterFunctions
+import org.springframework.web.reactive.function.server.ServerResponse
 
 class Router(private val bookCatalog: BookCatalogService) {
     val route: RouterFunction<ServerResponse> = RouterFunctions.route(
-        GET("/books"), HandlerFunction<ServerResponse> {
+        GET("/books"), {
             ServerResponse.ok().body(BodyInserters.fromObject(
                 mapOf("books" to bookCatalog.listBooks())
             ))
