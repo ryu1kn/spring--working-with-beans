@@ -16,6 +16,10 @@ Each example:
 * contains unit tests that uses the corresponding bean definition style.
 * is written in Kotlin (as the original audiences are Kotlin devs...)
 
+## Prerequisites
+
+* JDK v11~
+
 ## Usage
 
 To run the service in each example directory, run:
